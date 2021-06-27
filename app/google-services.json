@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "664610107755",
+    "firebase_url": "https://meetfurry-e76b1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "meetfurry-e76b1",
+    "storage_bucket": "meetfurry-e76b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664610107755:android:6868352fbbd4594f831c2e",
+        "android_client_info": {
+          "package_name": "com.example.meetfurry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664610107755-635dakh30rqp2135cumb8ehic4oupgf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCre5Orui959rowI8EFYOReB8_aO5X-BBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664610107755-635dakh30rqp2135cumb8ehic4oupgf9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664610107755:android:c80d949baf00c5fa831c2e",
+        "android_client_info": {
+          "package_name": "com.example.meetfurryapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664610107755-635dakh30rqp2135cumb8ehic4oupgf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCre5Orui959rowI8EFYOReB8_aO5X-BBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664610107755-635dakh30rqp2135cumb8ehic4oupgf9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

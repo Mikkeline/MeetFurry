@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.meetfurryapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="MeetFurry"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MeetFurryApplication"
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup"
+        tools:targetApi="m">
+        <service
+            android:name=".Notification.MyFireBaseMessagingService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".Notification.MyFirebaseIdService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".ChatMainActivity" />
+        <activity android:name=".FilteredUserPage" />
+        <activity android:name=".FilteredShelterPage" />
+        <activity android:name=".UserFilterFunction" />
+        <activity android:name=".MessagesActivity" />
+        <activity android:name=".FilterFunction" />
+        <activity android:name=".ShelterProfile" />
+        <activity android:name=".userForum" />
+        <activity android:name=".userPetDetails" />
+        <activity android:name=".shelterPetDetails" />
+        <activity android:name=".userHomepage" />
+        <activity android:name=".shelterHomepage" />
+        <activity android:name=".IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PetRegister" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".CommentsActivity" />
+        <activity android:name=".AddPost" />
+        <activity android:name=".Forum" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".StartingPage" />
+
+
+
+    </application>
+
+
+</manifest>

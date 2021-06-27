@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:isScrollContainer="true"
+    android:scrollbars="vertical"
+    tools:context=".ShelterProfile"
+    android:layout_gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/meetfurry_orange"
+            android:fontFamily="@font/baloo_bhaina"
+            android:gravity="center"
+            android:text="Your Profile"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/grey"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <ImageButton
+            android:id="@+id/btnBackTosHomePage"
+            android:layout_width="66dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/meetfurry_orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/homeAsUpIndicator"
+            tools:ignore="ContentDescription"
+            tools:targetApi="lollipop" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/shelterImg"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/default_userpic"
+            app:civ_border_color="@color/grey"
+            app:civ_border_width="2dp"
+            android:foregroundGravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/sllayout"
+            android:layout_width="381dp"
+            android:layout_height="408dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shelterImg">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="335dp"
+                android:layout_height="70dp"
+                tools:layout_editor_absoluteX="31dp"
+                tools:layout_editor_absoluteY="58dp">
+
+                <TextView
+                    android:id="@+id/fullName"
+                    android:layout_width="119dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="243dp"
+                    android:layout_marginRight="243dp"
+                    android:text="@string/fullName"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="75dp" />
+
+                <EditText
+                    android:id="@+id/sName_et"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/rectangle"
+                    android:hint="Name"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:text="@string/name"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/fullName"
+                    tools:ignore="HardcodedText,LabelFor" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="335dp"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="243dp"
+                    android:layout_marginRight="243dp"
+                    android:text="@string/email_address"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="75dp" />
+
+                <EditText
+                    android:id="@+id/sEmail_et"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/rectangle"
+                    android:focusable="false"
+                    android:hint="@string/email"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:padding="5dp"
+                    android:text="@string/email"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="HardcodedText,LabelFor" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="335dp"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:id="@+id/contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="242dp"
+                    android:layout_marginRight="242dp"
+                    android:text="@string/contactNumber"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="75dp" />
+
+                <EditText
+                    android:id="@+id/sContactNum_et"
+                    android:layout_width="200dp"
+                    android:layout_height="42dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/rectangle"
+                    android:hint="@string/email"
+                    android:importantForAutofill="no"
+                    android:inputType="textPhonetic"
+                    android:padding="5dp"
+                    android:text="@string/contactNo"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="HardcodedText,LabelFor" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout4"
+                android:layout_width="338dp"
+                android:layout_height="75dp">
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="243dp"
+                    android:layout_marginRight="243dp"
+                    android:text="@string/Address"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="75dp" />
+
+                <EditText
+                    android:id="@+id/sAddress_et"
+                    android:layout_width="200dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/rectangle"
+                    android:hint="@string/email"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:padding="5dp"
+                    android:text="@string/address"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="HardcodedText,LabelFor" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout5"
+                android:layout_width="335dp"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="243dp"
+                    android:layout_marginRight="243dp"
+                    android:text="@string/UserName"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="75dp" />
+
+                <EditText
+                    android:id="@+id/sUsername_et"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/rectangle"
+                    android:hint="@string/email"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:text="@string/username"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="HardcodedText,LabelFor" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnsUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="150dp"
+            android:text="@string/update_profile"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sllayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

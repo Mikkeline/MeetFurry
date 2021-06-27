@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".PetRegister">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayouttest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="@string/textview"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="435dp"
+            android:layout_height="50dp"
+            android:contentDescription="TitleBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_rectangle"
+            tools:ignore="HardcodedText" />
+
+        <ImageButton
+            android:id="@+id/btnBackToStartingPage"
+            android:layout_width="58dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/meetfurry_orange"
+            app:layout_constraintEnd_toStartOf="@+id/txtTitle"
+            app:layout_constraintHorizontal_bias="0.013"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/homeAsUpIndicator"
+            tools:ignore="ContentDescription"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="188dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="694dp"
+            android:fontFamily="@font/baloo_bhaina"
+            android:text="Pet Registration"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/grey"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="HardcodedText" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/constraintLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:isScrollContainer="true"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.307"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    tools:layout_editor_absoluteX="31dp"
+                    tools:layout_editor_absoluteY="58dp">
+
+                    <TextView
+                        android:id="@+id/txtPetName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="243dp"
+                        android:layout_marginRight="243dp"
+                        android:text="Pet Name: "
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+                        android:id="@+id/PetName"
+                        android:layout_width="188dp"
+                        android:layout_height="41dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/rectangle"
+                        android:hint="Name"
+                        android:importantForAutofill="no"
+                        android:inputType="textPersonName"
+                        android:padding="5dp"
+                        android:textSize="15sp"
+                        tools:ignore="HardcodedText" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    tools:layout_editor_absoluteX="31dp"
+                    tools:layout_editor_absoluteY="126dp">
+
+                    <TextView
+                        android:id="@+id/txtPetType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="243dp"
+                        android:layout_marginRight="243dp"
+                        android:text="Pet Type: "
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <Spinner
+                        android:id="@+id/spinner_petType"
+                        android:layout_width="188dp"
+                        android:layout_height="41dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginRight="12dp"
+                        android:autofillHints="Click to Select"
+                        android:background="@drawable/rectangle"
+                        android:backgroundTintMode="src_over"
+                        android:popupBackground="@drawable/background"
+                        tools:ignore="RtlHardcoded"
+                        tools:targetApi="lollipop" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout3"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    tools:layout_editor_absoluteX="31dp"
+                    tools:layout_editor_absoluteY="194dp">
+
+                    <TextView
+                        android:id="@+id/txtPetBreed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="243dp"
+                        android:layout_marginRight="243dp"
+                        android:text="Pet Breed: "
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+
+                    <EditText
+                        android:id="@+id/PetBreed"
+                        android:layout_width="188dp"
+                        android:layout_height="41dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/rectangle"
+                        android:hint="Mix Breed"
+                        android:importantForAutofill="no"
+                        android:inputType="textWebEditText"
+                        android:padding="5dp"
+                        android:textSize="15sp"
+                        tools:ignore="HardcodedText" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout4"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    tools:layout_editor_absoluteX="31dp"
+                    tools:layout_editor_absoluteY="262dp">
+
+                    <TextView
+                        android:id="@+id/txtPetGender"
+                        android:layout_width="150dp"
+                        android:layout_height="33dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="220dp"
+                        android:layout_marginRight="220dp"
+                        android:text="Pet Gender: "
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <Spinner
+                        android:id="@+id/spinner_petGender"
+                        android:layout_width="188dp"
+                        android:layout_height="41dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:autofillHints="Click to Select"
+                        android:background="@drawable/rectangle"
+                        android:backgroundTintMode="src_atop"
+                        android:popupBackground="@drawable/background"
+                        tools:targetApi="lollipop" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout5"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    tools:layout_editor_absoluteX="31dp"
+                    tools:layout_editor_absoluteY="330dp">
+
+                    <TextView
+                        android:id="@+id/txtPetColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="243dp"
+                        android:layout_marginRight="243dp"
+                        android:text="Pet Color: "
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+                        android:id="@+id/PetColor"
+                        android:layout_width="188dp"
+                        android:layout_height="41dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/rectangle"
+                        android:hint="Brown"
+                        android:importantForAutofill="no"
+                        android:padding="5dp"
+                        android:textSize="15sp"
+                        tools:ignore="HardcodedText,TextFields" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout6"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    tools:layout_editor_absoluteX="31dp"
+                    tools:layout_editor_absoluteY="398dp">
+
+                    <TextView
+                        android:id="@+id/txtPetAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="243dp"
+                        android:layout_marginRight="243dp"
+                        android:text="Pet Age: "
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <Button
+                        android:id="@+id/btnPlus"
+                        android:layout_width="47dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginEnd="151dp"
+                        android:layout_marginRight="151dp"
+                        android:text="+"
+                        android:textSize="16dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/etAge"
+                        android:layout_width="78dp"
+                        android:layout_height="42dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginEnd="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_toStartOf="@+id/btnMinus"
+                        android:layout_toLeftOf="@+id/btnMinus"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/btnMinus"
+                        android:layout_width="47dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="13dp"
+                        android:layout_marginRight="13dp"
+                        android:text="-"
+                        android:fontFamily="@font/roboto_slab_bold"
+                        android:textSize="22dp"
+                        android:textColor="@color/black" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout7"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    tools:layout_editor_absoluteX="31dp"
+                    tools:layout_editor_absoluteY="466dp">
+
+                    <TextView
+                        android:id="@+id/txtPetIntakeDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="200dp"
+                        android:layout_marginRight="200dp"
+                        android:text="Pet Intake Date: "
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/PetIntakeDate"
+                        android:layout_width="188dp"
+                        android:layout_height="41dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center"
+                        android:text="Click to Select Date"
+                        tools:ignore="HardcodedText" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout8"
+                    android:layout_width="350dp"
+                    android:layout_height="100dp"
+                    tools:layout_editor_absoluteX="31dp"
+                    tools:layout_editor_absoluteY="534dp">
+
+                    <TextView
+                        android:id="@+id/txtPetDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="200dp"
+                        android:layout_marginRight="200dp"
+                        android:text="Description: "
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+
+                    <EditText
+                        android:id="@+id/PetDes"
+                        android:layout_width="189dp"
+                        android:layout_height="83dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="top|left"
+                        android:hint="Roddie was put up for adoption for two month..."
+                        android:importantForAutofill="no"
+                        android:inputType="textMultiLine"
+                        android:lines="5"
+                        android:maxLines="8"
+                        android:minLines="3"
+                        android:padding="5dp"
+                        android:scrollbars="horizontal"
+                        android:textSize="12sp"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/petPictureupload"
+            android:layout_width="148dp"
+            android:layout_height="105dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="63dp"
+            android:layout_marginRight="63dp"
+            android:src="@drawable/add_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout1"
+            tools:ignore="ContentDescription" />
+
+        <Button
+            android:id="@+id/btnSubmitReg"
+            android:layout_width="108dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/btn_rectangle"
+            android:text="@string/submit"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnCancelReg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/petPictureupload"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="30dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancelReg"
+            android:layout_width="101dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/btncancel"
+            android:fontFamily="@font/baloo_bhaina"
+            android:text="@android:string/cancel"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSubmitReg"
+            app:layout_constraintTop_toBottomOf="@+id/petPictureupload" />
+
+        <TextView
+            android:id="@+id/shelterName_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCancelReg" />
+
+        <TextView
+            android:id="@+id/textaddImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:layout_marginLeft="42dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="311dp"
+            android:layout_marginRight="311dp"
+            android:text="Add Image :"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+<!--
+<NumberPicker
+android:id="@+id/PetAge"
+android:layout_width="188dp"
+android:layout_height="41dp"
+android:layout_alignParentTop="true"
+android:layout_alignParentEnd="true"
+android:layout_alignParentRight="true"
+android:layout_marginTop="11dp"
+android:layout_marginEnd="12dp"
+android:layout_marginRight="12dp"
+android:background="@drawable/rectangle"
+android:theme="@style/NumberPickerText" />-->

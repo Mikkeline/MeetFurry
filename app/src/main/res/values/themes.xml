@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MeetFurryApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#f9924e</item>
+        <item name="colorPrimaryVariant">#FFA366</item>
+        <item name="colorOnPrimary">#FF9800</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#8BC34A</item>
+        <item name="colorSecondaryVariant">#CDDC39</item>
+        <item name="colorOnSecondary">#FFB787</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">#FF9800</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="NumberPickerText">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#3C3B3B</item>
+        <item name="android:divider">@color/meetfurry_orange</item>
+        <item name="android:padding">8dp</item>
+
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+</resources>
