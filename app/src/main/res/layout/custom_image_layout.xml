@@ -8,6 +8,7 @@
 
 
 
+
         <com.jsibbold.zoomage.ZoomageView
             android:id="@+id/PetImage"
             android:layout_width="450dp"
@@ -22,6 +23,7 @@
             app:zoomage_minScale="0.6"
             app:zoomage_maxScale="8"
             />
+
 
 
 

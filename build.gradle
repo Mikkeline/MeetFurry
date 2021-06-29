@@ -22,7 +22,7 @@ allprojects {
         mavenCentral()
         mavenCentral() // Warning: this repository is going to shut down soon
         maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local' }
-       // jcenter() // Warning: this repository is going to shut down soon
+        jcenter() // Warning: this repository is going to shut down soon
     }
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile){
