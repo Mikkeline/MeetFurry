@@ -344,7 +344,7 @@
             app:backgroundTint="#F81919"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_et" />
+            app:layout_constraintTop_toBottomOf="@+id/image_slider" />
 
         <Button
             android:id="@+id/updateBtn"
@@ -359,5 +359,20 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/deleteBtn" />
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/image_slider"
+            android:layout_width="350dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="8dp"
+            app:iss_auto_cycle="true"
+            app:iss_delay="0"
+            app:iss_period="1000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_et" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

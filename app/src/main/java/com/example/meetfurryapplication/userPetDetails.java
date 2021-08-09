@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class userPetDetails extends AppCompatActivity implements View.OnClickListener {
@@ -37,12 +43,14 @@ public class userPetDetails extends AppCompatActivity implements View.OnClickLis
     private DatabaseReference root = db.getReference().child("Pet_Registration");
     private DatabaseReference refer = db.getReference().child("shelter_pet");
     private DatabaseReference userRef = db.getReference().child("Users");
-
+    private ImageSlider mainslider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_pet_details);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //getPetName from petAdapter
         Intent intentReceived = getIntent();
@@ -59,6 +67,29 @@ public class userPetDetails extends AppCompatActivity implements View.OnClickLis
         mColor = findViewById(R.id.color_tv);
         mIntakeDate = findViewById(R.id.intakeDate_tv);
         mDesc = findViewById(R.id.description_tv);
+
+        mainslider = (ImageSlider)findViewById(R.id.image_slider);
+        final List<SlideModel> remoteImages = new ArrayList<>();
+
+        root.child(petName).child("imageUrl2")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        for(DataSnapshot data:snapshot.getChildren())
+
+                            remoteImages.add(new SlideModel(data.child("ImgLink").getValue().toString(), ScaleTypes.FIT));
+
+                        mainslider.setImageList(remoteImages,ScaleTypes.FIT);
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+
 
         petPic = findViewById(R.id.PetImage);
         petPic.setOnClickListener(new View.OnClickListener() {
@@ -194,15 +225,9 @@ public class userPetDetails extends AppCompatActivity implements View.OnClickLis
                                         public void onComplete(@NonNull @NotNull Task<Void> task) {
                                             Toast.makeText(userPetDetails.this, "Starting chat...", Toast.LENGTH_LONG).show();
                                             Intent chat = new Intent(userPetDetails.this, MessagesActivity.class);
-                                            if (imgurl != null){
-                                                chat.putExtra("visit_image",imgurl );
-                                            }else{
-                                                chat.putExtra("visit_image",R.drawable.default_userpic );
-                                            }
-
                                             chat.putExtra("visit_user_id",sUID);
                                             chat.putExtra("visit_user_name",shelterName);
-
+                                            chat.putExtra("visit_image",imgurl );
                                             startActivity(chat);
                                             //Toast.makeText(userPetDetails.this,"Contact in chatlists",Toast.LENGTH_SHORT).show();
                                         }

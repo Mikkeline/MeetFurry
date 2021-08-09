@@ -39,14 +39,11 @@ public class userHomepage extends AppCompatActivity implements View.OnClickListe
     private DatabaseReference root = db.getReference().child("Pet_Registration");
     private FirebaseAuth firebaseAuth;
 
-
     private SearchView searchView;
     private RecyclerView mRecyclerView;
     private GridLayoutManager layoutManager;
     private petAdapter adapter;
     private List<Image> list;
-
-
 
     private Button mHomeBtn, mLogout;
     private Button mForumBtn;

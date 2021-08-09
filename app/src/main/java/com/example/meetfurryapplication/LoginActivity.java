@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btnSignUp:
                 closeKeyboard();
-
+                //select userType to signup
                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                 builder.setTitle("Type Of User?");
                 builder.setMessage("Please select type of the user. ");
@@ -125,6 +125,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String email = userEmail.getText().toString().trim();
         String pw = userPassword.getText().toString().trim();
 
+        //validation checking
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(pw)) {
             progressBar1.setVisibility(View.INVISIBLE);
             Toast.makeText(LoginActivity.this, "Email and Password is not complete, Please fill in your email and password!", Toast.LENGTH_SHORT).show();
@@ -147,14 +148,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         progressBar1.setVisibility(View.VISIBLE);
 
+        //login checking
         mAuth.signInWithEmailAndPassword(email,pw).addOnCompleteListener(task1 -> {
-
             if(task1.isSuccessful()){
-
                 user = FirebaseAuth.getInstance().getCurrentUser();
                 reference = FirebaseDatabase.getInstance().getReference("Users");
                 userID = user.getUid();
-
+                //check for userType
                 reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -180,14 +180,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }else{
                             Toast.makeText(LoginActivity.this, "Something went wrong, Please try again!", Toast.LENGTH_SHORT).show();
                         }
-
                     }
-
                     @Override
                     public void onCancelled(@NonNull @NotNull DatabaseError error) {
                     }
                 });
-
 
             }else{
                 Toast.makeText(LoginActivity.this, "Failed to login! Please check your credentials", Toast.LENGTH_SHORT).show();
@@ -196,7 +193,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
     private void closeKeyboard() {
         InputMethodManager inputManager = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        //inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
 
         inputManager.hideSoftInputFromWindow(getWindow().getDecorView().getRootView().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
 

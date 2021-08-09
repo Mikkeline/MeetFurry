@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,6 +19,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,6 +39,8 @@ import com.google.firebase.storage.UploadTask;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class shelterPetDetails extends AppCompatActivity implements View.OnClickListener  {
@@ -50,12 +56,15 @@ public class shelterPetDetails extends AppCompatActivity implements View.OnClick
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("Pet_Registration");
     private DatabaseReference refer = db.getReference().child("shelter_pet");
+    private ImageSlider mainslider;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_pet_details);
 
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getPetName from shelterPetAdapter
         Intent intentReceived = getIntent();
         Bundle data = intentReceived.getExtras();
@@ -71,6 +80,35 @@ public class shelterPetDetails extends AppCompatActivity implements View.OnClick
         mColor = findViewById(R.id.color_et);
         mIntakeDate = findViewById(R.id.intakeDate_et);
         mDesc = findViewById(R.id.description_et);
+
+
+
+        mainslider = (ImageSlider)findViewById(R.id.image_slider);
+        final List<SlideModel> remoteImages = new ArrayList<>();
+
+        root.child(petName).child("imageUrl2")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        for(DataSnapshot data:snapshot.getChildren())
+
+                            remoteImages.add(new SlideModel(data.child("ImgLink").getValue().toString(), ScaleTypes.FIT));
+
+                        mainslider.setImageList(remoteImages,ScaleTypes.FIT);
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+
+
+
+
+
         petPic = findViewById(R.id.PetImage);
         petPic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -312,8 +350,8 @@ public class shelterPetDetails extends AppCompatActivity implements View.OnClick
 
 
             Toast.makeText(shelterPetDetails.this, "Pet details updated successfully...\n You can notify the pet lovers in the Forum section", Toast.LENGTH_LONG).show();
-           // Intent edit = new Intent(shelterPetDetails.this, Forum.class);
-        //    startActivity(edit);
+            // Intent edit = new Intent(shelterPetDetails.this, Forum.class);
+            //    startActivity(edit);
 
 
         }
@@ -351,7 +389,7 @@ public class shelterPetDetails extends AppCompatActivity implements View.OnClick
 
             Toast.makeText(shelterPetDetails.this, "Pet details updated successfully...\n You can notify the pet lovers in the Forum section", Toast.LENGTH_LONG).show();
             //Intent edit = new Intent(shelterPetDetails.this, Forum.class);
-          //  startActivity(edit);
+            //  startActivity(edit);
 
 
         }

@@ -89,7 +89,6 @@ public class PetRegister extends AppCompatActivity implements View.OnClickListen
                     mName.setText(shelterName);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
                 Toast.makeText(PetRegister.this, "Something Wrong happened!", Toast.LENGTH_LONG).show();
@@ -266,10 +265,8 @@ public class PetRegister extends AppCompatActivity implements View.OnClickListen
                     imgRef.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                         @Override
                         public void onComplete(@NonNull @NotNull Task<Uri> task) {
-
                             FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
                             String UID = User.getUid();
-
                             downloadUrl = Objects.requireNonNull(task.getResult()).toString();
                             databaseReference.child(name).child("imageUrl/").setValue(downloadUrl);
                             databaseRefer.child(UID).child(name).child("imageUrl/").setValue(downloadUrl);
@@ -348,8 +345,6 @@ public class PetRegister extends AppCompatActivity implements View.OnClickListen
         databaseReference.child(Pet_Name).setValue(petsClass);
         PetsClass pets = new PetsClass(Pet_Name, Pet_Type,Pet_Breed,Pet_Gender,Pet_Color,Pet_Age,Pet_IntakeDate,Pet_Description, UID, address, shelterName, filter);
 
-
-
         database.getReference("Pet_Registration")
                 .child(Pet_Name)
                 .setValue(pets).addOnCompleteListener(task1 -> {
@@ -358,7 +353,7 @@ public class PetRegister extends AppCompatActivity implements View.OnClickListen
                 submitRegistration();
                 Toast.makeText(PetRegister.this, "Pets has been successfully register in MeetFurry! Please promote in Forum section!", Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(PetRegister.this, Forum.class);
+                Intent intent = new Intent(PetRegister.this, AddMoreActivity.class);
                 startActivity(intent);
                 finish();
             } else {
@@ -378,6 +373,7 @@ public class PetRegister extends AppCompatActivity implements View.OnClickListen
             if (task1.isSuccessful()) {
                 submitRegistration();
                 Toast.makeText(PetRegister.this, "Pets has been successfully register in MeetFurry! Please promote in Forum section!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(PetRegister.this, AddMoreActivity.class);
             } else {
                 dialog.dismiss();
                 Toast.makeText(PetRegister.this, "Almost there, Pet Registration process failed! ;( Please Try again!", Toast.LENGTH_LONG).show();

@@ -40,20 +40,19 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final int GalleryPick = 1;
+    public Uri imageUri = null;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
     private FirebaseAuth mAuth;
     private TextInputLayout editTextName, editTextEmail, editTextContact, editTextAddress, editTextusername, editTextpassword, editTextconfirmpassword;
     private ProgressBar progressBar;
     private String userType;
     private CircleImageView profilePic;
-    private static final int GalleryPick = 1;
-    public Uri imageUri = null;
     private String downloadUrl;
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("Users");
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +88,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 closeKeyboard();
+                //get photo from user's device
                 Intent galleryIntent = new Intent();
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
@@ -150,7 +150,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private void Sign_Up() {
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("Users");
-
+        //validate field
         String Name = Objects.requireNonNull(editTextName.getEditText()).getText().toString().trim();
         String Email = Objects.requireNonNull(editTextEmail.getEditText()).getText().toString().trim();
         String ContactNumber = Objects.requireNonNull(editTextContact.getEditText()).getText().toString().trim();
@@ -258,7 +258,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
         closeKeyboard();
         progressBar.setVisibility(View.VISIBLE);
-
+        //create an user account
         mAuth.createUserWithEmailAndPassword(Email, Password)
                 .addOnCompleteListener(this, task -> {
 
@@ -274,18 +274,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             StorageReference imgRef = storageReference
                                     .child("Profile_Pic/")
                                     .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child(Username);
-
+                            //store profile image in firebase storage
                             imgRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    //getDownloadUrl from the firebase storage to store in realtime db
                                     imgRef.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                         @Override
                                         public void onComplete(@NonNull @NotNull Task<Uri> task) {
                                             downloadUrl = Objects.requireNonNull(task.getResult()).toString();
-
                                             UsersClass usersClass = new UsersClass();
-                                            // String key = reference.push().getKey();
-                                            // assert key != null;
+
                                             reference.child(Username).setValue(usersClass);
                                             UsersClass user = new UsersClass();
                                             user.setName(Name);
@@ -297,8 +296,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                             user.setUserType(userType);
                                             user.setUid(uid);
                                             user.setImageUrl(downloadUrl);
-
-
+                                            //store user's information into realtime db
                                             rootNode.getReference("Users")
                                                     .child(uid)
                                                     .setValue(user).addOnCompleteListener(task1 -> {

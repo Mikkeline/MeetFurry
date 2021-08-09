@@ -6,7 +6,7 @@ buildscript {
 
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.1"
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath 'com.google.gms:google-services:4.3.8'
 
 
@@ -21,8 +21,9 @@ allprojects {
         google()
         mavenCentral()
         mavenCentral() // Warning: this repository is going to shut down soon
-        maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local' }
+        maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local'}
         jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://jitpack.io' }
     }
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile){

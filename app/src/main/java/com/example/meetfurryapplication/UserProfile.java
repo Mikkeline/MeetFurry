@@ -69,7 +69,7 @@ public class UserProfile extends AppCompatActivity {
         mAddress = (EditText) findViewById(R.id.uAddress_et);
         mEmail = (EditText) findViewById(R.id.uEmail_et);
 
-
+        //retreive user information
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @com.google.firebase.database.annotations.NotNull DataSnapshot snapshot) {
@@ -131,7 +131,6 @@ public class UserProfile extends AppCompatActivity {
             public void onClick(View v) {
                 closeKeyboard();
                 chooseImage();
-
             }
         });
 /////////////////////////////////////
@@ -144,7 +143,7 @@ public class UserProfile extends AppCompatActivity {
                 sendUserToHome();
             }
         });
-
+        //update info
         mUpdate = findViewById(R.id.btnuUpdate);
         mUpdate.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -159,27 +158,19 @@ public class UserProfile extends AppCompatActivity {
                     mName.setError("Full Name is required!");
                     mName.requestFocus();
                     return;
-                }
-
-                else if (TextUtils.isEmpty(Contact)) {
+                } else if (TextUtils.isEmpty(Contact)) {
                     mName.setError("Contact is required!");
                     mName.requestFocus();
                     return;
-                }
-
-                else if (TextUtils.isEmpty(Address)) {
+                }else if (TextUtils.isEmpty(Address)) {
                     mName.setError("Address is required!");
                     mName.requestFocus();
                     return;
-                }
-
-                else if (TextUtils.isEmpty(Username)) {
+                }else if (TextUtils.isEmpty(Username)) {
                     mName.setError("Username is required!");
                     mName.requestFocus();
                     return;
-                }
-
-                else {
+                }else {
                     reference.child(userID).child("name").setValue(Name);
                     reference.child(userID).child("contact").setValue(Contact);
                     reference.child(userID).child("address").setValue(Address);
@@ -248,7 +239,6 @@ public class UserProfile extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null){
             imageUri = data.getData();
             uPic.setImageURI(imageUri);
-
         }
     }
 

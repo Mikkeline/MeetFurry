@@ -173,14 +173,6 @@ public class shelterHomepage extends AppCompatActivity implements View.OnClickLi
             });}
 
 
-
-
-
-
-
-
-
-
         mHomeBtn = findViewById(R.id.homeBtn);
         mHomeBtn.setOnClickListener(this);
 

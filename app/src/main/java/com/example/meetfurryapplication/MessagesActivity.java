@@ -161,24 +161,16 @@ public class MessagesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
 
             @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {}
 
             @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {}
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
     }
 
@@ -225,7 +217,7 @@ public class MessagesActivity extends AppCompatActivity {
                             Uri downloadUrl=task.getResult();
                             myUrl=downloadUrl.toString();
 
-                            Map messageTextBody=new HashMap();
+                            Map<String, String> messageTextBody=new HashMap<>();
                             messageTextBody.put("message",myUrl);
                             messageTextBody.put("name",fileuri.getLastPathSegment());
                             messageTextBody.put("type",checker);
@@ -235,7 +227,7 @@ public class MessagesActivity extends AppCompatActivity {
                             messageTextBody.put("time",savecurrentTime);
                             messageTextBody.put("date",savecurrentDate);
 
-                            Map messageBodyDetails =new HashMap();
+                            Map<String, Object> messageBodyDetails =new HashMap<String, Object>();
                             messageBodyDetails.put(messageSenderRef+"/"+messagePushID,messageTextBody);
                             messageBodyDetails.put(messageReceiverRef+"/"+messagePushID,messageTextBody);
 
@@ -245,7 +237,7 @@ public class MessagesActivity extends AppCompatActivity {
                                     if(task.isSuccessful())
                                     {
                                         loadingBar.dismiss();
-                                        //Toast.makeText(ChatActivity.this,"Message sent Successfully...",Toast.LENGTH_SHORT).show();
+                                        //Message sent Successfully
                                     }
                                     else
                                     {
@@ -281,7 +273,7 @@ public class MessagesActivity extends AppCompatActivity {
 
             DatabaseReference Usermessagekeyref=RootRef.child("Messages").child(messageSenderId).child(messageReceiverId).push();
             String messagePushID=Usermessagekeyref.getKey();
-            Map messageTextBody=new HashMap();
+            Map<String, String> messageTextBody=new HashMap<String, String>();
             messageTextBody.put("message",messagetext);
             messageTextBody.put("type","text");
             messageTextBody.put("from",messageSenderId);
@@ -290,7 +282,7 @@ public class MessagesActivity extends AppCompatActivity {
             messageTextBody.put("time",savecurrentTime);
             messageTextBody.put("date",savecurrentDate);
 
-            Map messageBodyDetails =new HashMap();
+            Map<String, Object> messageBodyDetails =new HashMap<>();
             messageBodyDetails.put(messageSenderRef+"/"+messagePushID,messageTextBody);
             messageBodyDetails.put(messageReceiverRef+"/"+messagePushID,messageTextBody);
 
