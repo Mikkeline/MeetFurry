@@ -1,5 +1,8 @@
 # MeetFurry
-Final Year Project 
+
+BY Michelle Wong Shi Ping, Yen Kwan Nee 
+
+TARUC Final Year Project 
 
 Pet overpopulation is a serious issue in not only Malaysia but all around the world. Even though animal shelters rescue many animals every year, there are even
 more pets being abandoned by their owner. Adoption should be practiced in order to reduce pet overpopulation. The possible solution to solve this problem is
@@ -12,6 +15,7 @@ Android Studio and Google Firebase. In the final testing, we run through a compl
 feedback. The strength of this project is all the functionality proposed, but there are still some flaws and improvements can be made in the future.
 
 User Guide 
+
 [MeetFurry_UserGuide.pdf](https://github.com/Mikkeline/MeetFurry/files/8802585/MeetFurry_UserGuide.pdf)
 
 
