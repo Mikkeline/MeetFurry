@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Michelle/MeetFurryApplication/MeetFurryApplication/app/src/main/res/drawable/caregiver_border.xml" value="0.30185185185185187" />
+        <entry key="..\:/Michelle/MeetFurryApplication/MeetFurryApplication/app/src/main/res/drawable/user_border.xml" value="0.30185185185185187" />
+        <entry key="..\:/Michelle/MeetFurryApplication/MeetFurryApplication/app/src/main/res/layout/activity_chat.xml" value="0.3489583333333333" />
+        <entry key="..\:/Michelle/MeetFurryApplication/MeetFurryApplication/app/src/main/res/layout/activity_chat_main.xml" value="0.3489583333333333" />
+        <entry key="..\:/Michelle/MeetFurryApplication/MeetFurryApplication/app/src/main/res/layout/activity_chats_fragment.xml" value="0.3489583333333333" />
+        <entry key="..\:/Michelle/MeetFurryApplication/MeetFurryApplication/app/src/main/res/layout/activity_shelter_homepage.xml" value="0.17777777777777778" />
+        <entry key="..\:/Michelle/MeetFurryApplication/MeetFurryApplication/app/src/main/res/layout/activity_user_profile.xml" value="0.3489583333333333" />
+        <entry key="..\:/Michelle/MeetFurryApplication/MeetFurryApplication/app/src/main/res/layout/item_user_row.xml" value="0.3489583333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
