@@ -16,6 +16,6 @@ feedback. The strength of this project is all the functionality proposed, but th
 
 User Guide 
 
-[MeetFurry_UserGuide.pdf](https://github.com/Mikkeline/MeetFurry/files/8802585/MeetFurry_UserGuide.pdf)
+[MeetFurry_UserGuide.pdf]
 
 
